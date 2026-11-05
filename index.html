@@ -1,74 +1,289 @@
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NIRMALA</title>
+
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#100b19;
-  color:white;
-  text-align:center;
+ margin:0;
+ background:#100b19;
+ color:white;
+ font-family:Arial,sans-serif;
 }
 header{
-  padding:45px 15px;
-  background:linear-gradient(135deg,#35145b,#090610);
-  border-bottom:2px solid #9255d8;
+ background:#1d102d;
+ padding:25px 18px;
+ border-bottom:2px solid #8b45c8;
 }
-h1{color:#d3aaff;letter-spacing:6px;font-size:36px}
+header h1{color:#c58aff;margin:0}
+header p{color:#c9b4dc}
+main{padding:18px}
+h2{color:#d3a4ff}
 .card{
-  background:#211632;
-  margin:18px 12px;
-  padding:22px;
-  border-radius:16px;
-  border:1px solid #58377a;
+ background:#21152f;
+ border:1px solid #563477;
+ border-radius:15px;
+ padding:17px;
+ margin:12px 0;
 }
 button{
-  background:#9255d8;
-  color:white;
-  border:0;
-  padding:12px 22px;
-  margin:5px;
-  border-radius:20px;
-  font-weight:bold;
+ background:#803fc0;
+ color:white;
+ border:0;
+ border-radius:10px;
+ padding:12px 17px;
+ margin:5px 2px;
+ font-weight:bold;
 }
-button:active{background:#63349a}
-footer{padding:20px;color:#bda6d4}
+button:active{background:#a86ce0}
+input{
+ padding:12px;
+ border-radius:8px;
+ border:0;
+ width:100%;
+ margin:8px 0;
+}
+.page{display:none}
+.page.active{display:block}
+.stat{
+ display:flex;
+ gap:10px;
+}
+.stat .card{flex:1;text-align:center}
+.number{font-size:27px;color:#d3a4ff}
+li{padding:7px 0;color:#eee}
+footer{
+ position:fixed;
+ bottom:0;
+ left:0;
+ width:100%;
+ background:#1d102d;
+ display:flex;
+ justify-content:space-around;
+ padding:12px 3px;
+ border-top:1px solid #70419a;
+}
+footer button{
+ background:transparent;
+ font-size:12px;
+ padding:8px 5px;
+}
+.content{padding-bottom:90px}
 </style>
 </head>
+
 <body>
+
 <header>
-  <h1>NIRMALA</h1>
-  <p>Diraja • Misteri • Elegan</p>
-  <p>Selamat Datang ke Kerajaan NIRMALA</p>
+<h1>♛ NIRMALA</h1>
+<p>Selamat datang ke Kerajaan NIRMALA</p>
 </header>
 
+<main class="content">
+
+<section id="home" class="page active">
+<h2>Welcome to NIRMALA</h2>
+
+<div class="stat">
 <div class="card">
-  <h2>Menu Utama</h2>
-  <p>Selamat datang, Alnir!</p>
-  <button onclick="alert('Selamat datang ke NIRMALA!')">Masuk</button>
+<div class="number" id="points">0</div>
+Poin Anda
+</div>
+<div class="card">
+<div class="number">♛</div>
+NIRMALA
+</div>
 </div>
 
 <div class="card">
-  <h2>Jawatan NIRMALA</h2>
-  <p>👑 Sri Nir — Owner</p>
-  <p>💜 Srikota — Timbalan</p>
-  <p>🛡️ Wirtana — Admin</p>
-  <p>Alnir — Ahli</p>
+<h3>🏆 Ranking</h3>
+<p id="rank">Ranking: Belum tersedia</p>
+<button onclick="showPage('ranking')">Lihat Ranking</button>
 </div>
 
 <div class="card">
-  <h2>Aktiviti</h2>
-  <button onclick="alert('Room NIRMALA')">Room</button>
-  <button onclick="alert('Mesej NIRMALA')">Mesej</button>
-  <button onclick="alert('Game NIRMALA')">Game</button>
-  <button onclick="alert('Tugasan NIRMALA')">Tugasan</button>
-  <button onclick="alert('Undang-undang NIRMALA')">Undang-undang</button>
+<h3>📋 Tugasan</h3>
+<p>Selesaikan tugasan untuk mendapatkan poin.</p>
+<button onclick="showPage('tasks')">Lihat Tugasan</button>
 </div>
 
-<footer>© NIRMALA</footer>
+<div class="card">
+<h3>⚖️ Undang-undang</h3>
+<p>Peraturan rasmi komuniti NIRMALA.</p>
+<button onclick="showPage('laws')">Baca Undang-undang</button>
+</div>
+
+<div class="card">
+<h3>🎮 Geme NIRMALA</h3>
+<button onclick="showPage('bingo')">1. Bingo</button>
+<button onclick="showPage('quiz')">2. Kuiz</button>
+</div>
+</section>
+
+<section id="ranking" class="page">
+<h2>🏆 Ranking</h2>
+<div class="card">
+<h3>Ranking Poin</h3>
+<p>1. Anda</p>
+<p id="rankingPoints">0 Poin</p>
+<p>Ranking ahli lain akan ditambah apabila sistem ahli disediakan.</p>
+</div>
+</section>
+
+<section id="tasks" class="page">
+<h2>📋 Tugasan</h2>
+<div class="card">
+<p>1. Kongsi satu poster NIRMALA.</p>
+<p>2. Berikan hadiah kepada kumpulan.</p>
+<p>3. Berinteraksi dalam komuniti.</p>
+<p>4. Sertai aktiviti NIRMALA.</p>
+<p>5. Bantu menjaga keharmonian ahli.</p>
+<p><b>Nota:</b> Tandakan tugasan selepas selesai.</p>
+</div>
+</section>
+
+<section id="laws" class="page">
+<h2>⚖️ Undang-undang NIRMALA</h2>
+<div class="card">
+<ol>
+<li>Wajib menjaga rahsia dan privasi ahli.</li>
+<li>Dilarang memulakan pergaduhan.</li>
+<li>Wajib menghormati semua ahli.</li>
+<li>Wajib bersetuju dengan peraturan.</li>
+<li>Dilarang menyamar sebagai pemegang jawatan.</li>
+<li>Wajib menjaga nama baik NIRMALA.</li>
+<li>Dilarang menyebarkan maklumat peribadi ahli.</li>
+<li>Wajib menghormati Owner, Timbalan dan Admin.</li>
+<li>Dilarang melakukan penipuan.</li>
+<li>Wajib menjaga keamanan komuniti.</li>
+</ol>
+</div>
+</section>
+
+<section id="bingo" class="page">
+<h2>🎲 Bingo NIRMALA</h2>
+<div class="card">
+<p>Tekan butang untuk mendapatkan nombor Bingo.</p>
+<div class="number" id="bingoNumber">?</div>
+<button onclick="bingo()">Cabut Nombor</button>
+</div>
+</section>
+
+<section id="quiz" class="page">
+<h2>📝 Kuiz NIRMALA</h2>
+<div class="card">
+<p id="question">Apakah nama komuniti ini?</p>
+<div id="answers"></div>
+<p id="result"></p>
+</div>
+</section>
+
+<section id="room" class="page">
+<h2>💬 Room NIRMALA</h2>
+<div class="card">
+<p>Ruang komuniti NIRMALA.</p>
+<p>Fungsi chat langsung memerlukan sistem pangkalan data dan sambungan tambahan.</p>
+</div>
+</section>
+
+<section id="messages" class="page">
+<h2>✉️ Mesej</h2>
+<div class="card">
+<p>Ruang mesej ahli NIRMALA.</p>
+</div>
+</section>
+
+<section id="me" class="page">
+<h2>♟ Saya</h2>
+<div class="card">
+<p>Profil ahli</p>
+<p>Poin: <span id="myPoints">0</span></p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<button onclick="showPage('home')">⌂<br>NIRMALA</button>
+<button onclick="showPage('room')">💬<br>Room</button>
+<button onclick="showPage('messages')">✉️<br>Mesej</button>
+<button onclick="showPage('me')">♟<br>Saya</button>
+</footer>
+
+<script>
+let points = Number(localStorage.getItem("nirmalaPoints")) || 0;
+
+function updatePoints(){
+ document.getElementById("points").textContent=points;
+ document.getElementById("myPoints").textContent=points;
+ document.getElementById("rankingPoints").textContent=points+" Poin";
+ localStorage.setItem("nirmalaPoints",points);
+}
+
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>{
+  p.classList.remove("active");
+ });
+ document.getElementById(id).classList.add("active");
+ window.scrollTo(0,0);
+}
+
+function bingo(){
+ let number=Math.floor(Math.random()*25)+1;
+ document.getElementById("bingoNumber").textContent=number;
+}
+
+const questions=[
+ {
+ q:"Apakah nama komuniti ini?",
+ a:["NIRMALA","FALCON","NISKALA"],
+ correct:"NIRMALA"
+ },
+ {
+ q:"Apakah warna tema NIRMALA?",
+ a:["Biru dan putih","Hitam dan ungu","Hijau dan kuning"],
+ correct:"Hitam dan ungu"
+ },
+ {
+ q:"Apakah tugas ahli NIRMALA?",
+ a:["Mencetuskan pergaduhan","Menjaga keharmonian","Menyebarkan rahsia"],
+ correct:"Menjaga keharmonian"
+ }
+];
+
+let current=0;
+
+function loadQuiz(){
+ let q=questions[current];
+ document.getElementById("question").textContent=q.q;
+ let html="";
+ q.a.forEach(answer=>{
+  html+=`<button onclick="answerQuiz('${answer}')">${answer}</button>`;
+ });
+ document.getElementById("answers").innerHTML=html;
+ document.getElementById("result").textContent="";
+}
+
+function answerQuiz(answer){
+ let q=questions[current];
+ if(answer===q.correct){
+  points+=5;
+  updatePoints();
+  document.getElementById("result").textContent="Betul! +5 Poin 💜";
+ }else{
+  document.getElementById("result").textContent="Jawapan kurang tepat.";
+ }
+ current=(current+1)%questions.length;
+ setTimeout(loadQuiz,1200);
+}
+
+updatePoints();
+loadQuiz();
+</script>
+
 </body>
-  </html>
+</html>
