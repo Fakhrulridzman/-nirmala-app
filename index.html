@@ -3,287 +3,160 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NIRMALA</title>
-
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- background:#100b19;
- color:white;
- font-family:Arial,sans-serif;
-}
-header{
- background:#1d102d;
- padding:25px 18px;
- border-bottom:2px solid #8b45c8;
-}
-header h1{color:#c58aff;margin:0}
-header p{color:#c9b4dc}
-main{padding:18px}
-h2{color:#d3a4ff}
-.card{
- background:#21152f;
- border:1px solid #563477;
- border-radius:15px;
- padding:17px;
- margin:12px 0;
-}
-button{
- background:#803fc0;
- color:white;
- border:0;
- border-radius:10px;
- padding:12px 17px;
- margin:5px 2px;
- font-weight:bold;
-}
-button:active{background:#a86ce0}
-input{
- padding:12px;
- border-radius:8px;
- border:0;
- width:100%;
- margin:8px 0;
-}
+body{margin:0;background:#090710;color:#fff;font-family:Arial,sans-serif;padding-bottom:85px}
+header{background:linear-gradient(120deg,#190c2d,#321052);padding:24px 18px;border-bottom:1px solid #7540a0}
+.logo{font-size:27px;font-weight:bold;letter-spacing:5px;color:#d7aaff}
+.sub{color:#c8a9df;font-size:12px;letter-spacing:2px;margin-top:7px}
+main{padding:18px;max-width:650px;margin:auto}
+.welcome{font-size:23px;font-weight:bold;margin:8px 0}
+.muted{color:#b8a9c6;font-size:13px}
+.points{background:linear-gradient(120deg,#35134e,#170d28);border:1px solid #7545a0;border-radius:16px;padding:18px;margin:18px 0}
+.points strong{font-size:30px;color:#e0b8ff}
+.section{font-size:17px;margin:25px 0 12px;font-weight:bold}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#171222;border:1px solid #38244c;border-radius:14px;padding:17px;min-height:95px}
+.card .emoji{font-size:25px}
+.card h3{font-size:15px;margin:10px 0 5px}
+.card p{font-size:12px;color:#b8a9c6;margin:0}
+button{border:0;border-radius:10px;background:#7439a5;color:white;padding:12px 16px;font-weight:bold;cursor:pointer}
+button:active{opacity:.7}
+.wide{width:100%;margin-top:12px}
+input{width:100%;padding:13px;margin:7px 0;background:#171222;border:1px solid #604079;border-radius:9px;color:white}
 .page{display:none}
 .page.active{display:block}
-.stat{
- display:flex;
- gap:10px;
-}
-.stat .card{flex:1;text-align:center}
-.number{font-size:27px;color:#d3a4ff}
-li{padding:7px 0;color:#eee}
-footer{
- position:fixed;
- bottom:0;
- left:0;
- width:100%;
- background:#1d102d;
- display:flex;
- justify-content:space-around;
- padding:12px 3px;
- border-top:1px solid #70419a;
-}
-footer button{
- background:transparent;
- font-size:12px;
- padding:8px 5px;
-}
-.content{padding-bottom:90px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#130d1d;border-top:1px solid #49305d;display:flex;justify-content:space-around;padding:12px 4px;z-index:5}
+nav button{background:transparent;color:#c7b6d5;padding:7px 5px;font-size:11px}
+nav button.active{color:#d9aaff}
+.item{background:#171222;padding:15px;border-radius:12px;margin:10px 0;border:1px solid #38244c}
+.hidden{display:none}
+footer{text-align:center;color:#796b86;font-size:11px;padding:25px}
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>♛ NIRMALA</h1>
-<p>Selamat datang ke Kerajaan NIRMALA</p>
+ <div class="logo">♛ NIRMALA</div>
+ <div class="sub">KERAJAAN NIRMALA</div>
 </header>
 
-<main class="content">
-
+<main>
 <section id="home" class="page active">
-<h2>Welcome to NIRMALA</h2>
+ <p class="muted">SELAMAT DATANG</p>
+ <div class="welcome">Welcome to NIRMALA</div>
+ <p class="muted">Sebuah komuniti yang bersatu dan harmoni.</p>
 
-<div class="stat">
-<div class="card">
-<div class="number" id="points">0</div>
-Poin Anda
-</div>
-<div class="card">
-<div class="number">♛</div>
-NIRMALA
-</div>
-</div>
+ <div class="points">
+  <p class="muted">JUMLAH POIN ANDA</p>
+  <strong id="points">0</strong>
+  <p class="muted">Mata NIRMALA</p>
+ </div>
 
-<div class="card">
-<h3>🏆 Ranking</h3>
-<p id="rank">Ranking: Belum tersedia</p>
-<button onclick="showPage('ranking')">Lihat Ranking</button>
-</div>
+ <div class="section">Menu Utama</div>
+ <div class="grid">
+  <div class="card"><div class="emoji">🏆</div><h3>Ranking</h3><p>Kedudukan ahli</p></div>
+  <div class="card"><div class="emoji">📜</div><h3>Tugasan</h3><p>Senarai tugasan ahli</p></div>
+  <div class="card"><div class="emoji">⚖️</div><h3>Undang-undang</h3><p>Peraturan NIRMALA</p></div>
+  <div class="card"><div class="emoji">👑</div><h3>Jawatan Ahli</h3><p>Sri Nir · Srikota · Wirtana · Alnir</p></div>
+ </div>
 
-<div class="card">
-<h3>📋 Tugasan</h3>
-<p>Selesaikan tugasan untuk mendapatkan poin.</p>
-<button onclick="showPage('tasks')">Lihat Tugasan</button>
-</div>
-
-<div class="card">
-<h3>⚖️ Undang-undang</h3>
-<p>Peraturan rasmi komuniti NIRMALA.</p>
-<button onclick="showPage('laws')">Baca Undang-undang</button>
-</div>
-
-<div class="card">
-<h3>🎮 Geme NIRMALA</h3>
-<button onclick="showPage('bingo')">1. Bingo</button>
-<button onclick="showPage('quiz')">2. Kuiz</button>
-</div>
-</section>
-
-<section id="ranking" class="page">
-<h2>🏆 Ranking</h2>
-<div class="card">
-<h3>Ranking Poin</h3>
-<p>1. Anda</p>
-<p id="rankingPoints">0 Poin</p>
-<p>Ranking ahli lain akan ditambah apabila sistem ahli disediakan.</p>
-</div>
-</section>
-
-<section id="tasks" class="page">
-<h2>📋 Tugasan</h2>
-<div class="card">
-<p>1. Kongsi satu poster NIRMALA.</p>
-<p>2. Berikan hadiah kepada kumpulan.</p>
-<p>3. Berinteraksi dalam komuniti.</p>
-<p>4. Sertai aktiviti NIRMALA.</p>
-<p>5. Bantu menjaga keharmonian ahli.</p>
-<p><b>Nota:</b> Tandakan tugasan selepas selesai.</p>
-</div>
-</section>
-
-<section id="laws" class="page">
-<h2>⚖️ Undang-undang NIRMALA</h2>
-<div class="card">
-<ol>
-<li>Wajib menjaga rahsia dan privasi ahli.</li>
-<li>Dilarang memulakan pergaduhan.</li>
-<li>Wajib menghormati semua ahli.</li>
-<li>Wajib bersetuju dengan peraturan.</li>
-<li>Dilarang menyamar sebagai pemegang jawatan.</li>
-<li>Wajib menjaga nama baik NIRMALA.</li>
-<li>Dilarang menyebarkan maklumat peribadi ahli.</li>
-<li>Wajib menghormati Owner, Timbalan dan Admin.</li>
-<li>Dilarang melakukan penipuan.</li>
-<li>Wajib menjaga keamanan komuniti.</li>
-</ol>
-</div>
-</section>
-
-<section id="bingo" class="page">
-<h2>🎲 Bingo NIRMALA</h2>
-<div class="card">
-<p>Tekan butang untuk mendapatkan nombor Bingo.</p>
-<div class="number" id="bingoNumber">?</div>
-<button onclick="bingo()">Cabut Nombor</button>
-</div>
-</section>
-
-<section id="quiz" class="page">
-<h2>📝 Kuiz NIRMALA</h2>
-<div class="card">
-<p id="question">Apakah nama komuniti ini?</p>
-<div id="answers"></div>
-<p id="result"></p>
-</div>
+ <div class="section">Games</div>
+ <div class="grid">
+  <div class="card"><div class="emoji">🎲</div><h3>Bingo</h3><p>Permainan NIRMALA</p><button class="wide" onclick="showPage('bingo')">Main</button></div>
+  <div class="card"><div class="emoji">🧠</div><h3>Kuiz</h3><p>Uji pengetahuan anda</p><button class="wide" onclick="showPage('quiz')">Main</button></div>
+ </div>
 </section>
 
 <section id="room" class="page">
-<h2>💬 Room NIRMALA</h2>
-<div class="card">
-<p>Ruang komuniti NIRMALA.</p>
-<p>Fungsi chat langsung memerlukan sistem pangkalan data dan sambungan tambahan.</p>
-</div>
+ <div class="welcome">Ruang NIRMALA</div>
+ <p class="muted">Pilih ruang untuk dikunjungi.</p>
+ <div class="item">🏛️ <b>Ruang Utama</b></div>
+ <div class="item">🎮 <b>Game Room</b></div>
+ <div class="item">💬 <b>Chat Santai</b></div>
+ <div class="item">🤝 <b>Bilik Kenalan</b></div>
 </section>
 
-<section id="messages" class="page">
-<h2>✉️ Mesej</h2>
-<div class="card">
-<p>Ruang mesej ahli NIRMALA.</p>
-</div>
+<section id="chat" class="page">
+ <div class="welcome">Mesej</div>
+ <p class="muted">Komunikasi ahli NIRMALA</p>
+ <div class="item">💬 Chat NIRMALA</div>
+ <button class="wide" onclick="showPage('search')">＋ Cari ID Ahli</button>
+ <p class="muted">Ruang mesej ini ialah paparan contoh. Chat sebenar memerlukan sistem pelayan.</p>
 </section>
 
-<section id="me" class="page">
-<h2>♟ Saya</h2>
-<div class="card">
-<p>Profil ahli</p>
-<p>Poin: <span id="myPoints">0</span></p>
-</div>
+<section id="search" class="page">
+ <div class="welcome">Cari ID Ahli</div>
+ <input id="memberId" placeholder="Masukkan ID ahli">
+ <button onclick="alert('Carian ahli sebenar memerlukan pangkalan data NIRMALA.')">Cari Ahli</button>
 </section>
 
+<section id="account" class="page">
+ <div class="welcome">Akaun Saya</div>
+ <div class="item">👤 Nama: Ahli NIRMALA</div>
+ <div class="item">👑 Jawatan: Alnir</div>
+ <div class="item">⭐ Poin: <span id="accountPoints">0</span></div>
+ <div class="item">⚙️ Tetapan Akaun</div>
+</section>
+
+<section id="quiz" class="page">
+ <div class="welcome">🧠 Kuiz NIRMALA</div>
+ <div class="item">
+  <p>Apakah nama komuniti ini?</p>
+  <button class="wide" onclick="answer(true)">NIRMALA</button>
+  <button class="wide" onclick="answer(false)">FALCON</button>
+  <p id="quizResult" class="muted"></p>
+ </div>
+ <button onclick="showPage('home')">Kembali</button>
+</section>
+
+<section id="bingo" class="page">
+ <div class="welcome">🎲 Bingo NIRMALA</div>
+ <p class="muted">Permainan nombor contoh.</p>
+ <div class="item"><strong id="bingoNumber" style="font-size:35px">?</strong></div>
+ <button onclick="drawNumber()">Cabut Nombor</button>
+ <button onclick="showPage('home')">Kembali</button>
+</section>
 </main>
 
-<footer>
-<button onclick="showPage('home')">⌂<br>NIRMALA</button>
-<button onclick="showPage('room')">💬<br>Room</button>
-<button onclick="showPage('messages')">✉️<br>Mesej</button>
-<button onclick="showPage('me')">♟<br>Saya</button>
-</footer>
+<footer>© NIRMALA · KERAJAAN NIRMALA</footer>
+
+<nav>
+ <button class="active" onclick="showPage('home',this)">⌂<br>Utama</button>
+ <button onclick="showPage('room',this)">♧<br>Room</button>
+ <button onclick="showPage('chat',this)">✉<br>Chat</button>
+ <button onclick="showPage('account',this)">♙<br>Akaun</button>
+</nav>
 
 <script>
-let points = Number(localStorage.getItem("nirmalaPoints")) || 0;
-
+let points=Number(localStorage.getItem('nirmalaPoints')||0);
 function updatePoints(){
- document.getElementById("points").textContent=points;
- document.getElementById("myPoints").textContent=points;
- document.getElementById("rankingPoints").textContent=points+" Poin";
- localStorage.setItem("nirmalaPoints",points);
+ document.getElementById('points').textContent=points;
+ document.getElementById('accountPoints').textContent=points;
 }
-
-function showPage(id){
- document.querySelectorAll(".page").forEach(p=>{
-  p.classList.remove("active");
- });
- document.getElementById(id).classList.add("active");
- window.scrollTo(0,0);
+function showPage(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
 }
-
-function bingo(){
- let number=Math.floor(Math.random()*25)+1;
- document.getElementById("bingoNumber").textContent=number;
-}
-
-const questions=[
- {
- q:"Apakah nama komuniti ini?",
- a:["NIRMALA","FALCON","NISKALA"],
- correct:"NIRMALA"
- },
- {
- q:"Apakah warna tema NIRMALA?",
- a:["Biru dan putih","Hitam dan ungu","Hijau dan kuning"],
- correct:"Hitam dan ungu"
- },
- {
- q:"Apakah tugas ahli NIRMALA?",
- a:["Mencetuskan pergaduhan","Menjaga keharmonian","Menyebarkan rahsia"],
- correct:"Menjaga keharmonian"
- }
-];
-
-let current=0;
-
-function loadQuiz(){
- let q=questions[current];
- document.getElementById("question").textContent=q.q;
- let html="";
- q.a.forEach(answer=>{
-  html+=`<button onclick="answerQuiz('${answer}')">${answer}</button>`;
- });
- document.getElementById("answers").innerHTML=html;
- document.getElementById("result").textContent="";
-}
-
-function answerQuiz(answer){
- let q=questions[current];
- if(answer===q.correct){
-  points+=5;
-  updatePoints();
-  document.getElementById("result").textContent="Betul! +5 Poin 💜";
+function answer(correct){
+ let result=document.getElementById('quizResult');
+ if(correct){
+  points+=10;
+  localStorage.setItem('nirmalaPoints',points);
+  result.textContent='Betul! Anda mendapat 10 poin.';
  }else{
-  document.getElementById("result").textContent="Jawapan kurang tepat.";
+  result.textContent='Belum tepat. Cuba lagi!';
  }
- current=(current+1)%questions.length;
- setTimeout(loadQuiz,1200);
+ updatePoints();
 }
-
+function drawNumber(){
+ document.getElementById('bingoNumber').textContent=Math.floor(Math.random()*25)+1;
+}
 updatePoints();
-loadQuiz();
 </script>
-
 </body>
 </html>
